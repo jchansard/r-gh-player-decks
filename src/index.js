@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import PlayerAbilityCardsController from './player-ability-cards-controller';
-import CardPile from './card-pile'
 
 class App extends React.Component {
 
