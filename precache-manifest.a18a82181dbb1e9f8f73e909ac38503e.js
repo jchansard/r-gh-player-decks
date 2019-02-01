@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "b87f4e25ac2452661703",
-    "url": "/r-gh-player-decks/static/js/main.b87f4e25.chunk.js"
+    "revision": "a43f5e90ca9ee4b7da6a",
+    "url": "/r-gh-player-decks/static/js/main.a43f5e90.chunk.js"
   },
   {
-    "revision": "18849ae086c5fbf6d00a",
-    "url": "/r-gh-player-decks/static/js/1.18849ae0.chunk.js"
+    "revision": "ba59af60b0f5001ebb5b",
+    "url": "/r-gh-player-decks/static/js/1.ba59af60.chunk.js"
   },
   {
     "revision": "83edb3ade5571537a7d0",
@@ -120,7 +120,7 @@ self.__precacheManifest = [
     "url": "/r-gh-player-decks/static/media/sw_26.feb6d07f.jpg"
   },
   {
-    "revision": "db7950b0737caf064e23621647a6fe8a",
+    "revision": "81b1e43c869877908301ec097ff72493",
     "url": "/r-gh-player-decks/index.html"
   }
 ];
