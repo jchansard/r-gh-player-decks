@@ -16,14 +16,19 @@ const CardContainer = styled.div``;
 
 export default class CardGrid extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.clickHandler = this.props.clickHandler || ((e, id) => null);
+  }
+
   render() {
-    const clickHandler = this.props.clickHandler || ((e, id) => null);
     return (
       <Container>
         {this.props.cards.map((cardId, index) => {
           const isSelected = (Array.from(this.props.selected || []).indexOf(cardId) > -1);
           return (
-            <CardContainer key={index} onClick={(e) => clickHandler(e, cardId)}>
+            <CardContainer key={index} onClick={(e) => this.clickHandler(e, cardId)}>
               <Card key={index} id={cardId} selected={isSelected}/>
             </CardContainer>
           )

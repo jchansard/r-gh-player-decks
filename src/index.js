@@ -9,7 +9,7 @@ class App extends React.Component {
   onDragEnd(result) {}
   render() {
     return (
-        <PlayerAbilityCardsController></PlayerAbilityCardsController>
+        <PlayerAbilityCardsController height={window.localStorage.getItem('height')} width={window.localStorage.getItem('width')}></PlayerAbilityCardsController>
     );
   }
 }

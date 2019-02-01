@@ -7,9 +7,9 @@ const Container = styled.div`
   width: 90%;
   border: 1px solid black;
   background-color: white;
+  text-align: center;
 `;
 const Title = styled.h1`
-  text-align: center;
 `;
 
 const CardListContainer = styled.div`

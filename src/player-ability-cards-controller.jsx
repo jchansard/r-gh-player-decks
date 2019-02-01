@@ -9,9 +9,19 @@ import swCards from './data/cards';
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  background-color: white;
+  height: ${(props) => props.height};
+  width: ${(props) => props.width};
 `;
 
 export default class PlayerAbilityCardsController extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.height = this.props.height || "100%";
+    this.width = this.props.width || "100%;"
+  }
 
   state = {
     ...cardPileData,
@@ -67,9 +77,9 @@ export default class PlayerAbilityCardsController extends React.Component {
     else {
       return (
         <DragDropContext onDragEnd={this.onDragEnd}>
-          <Container>
+          <Container height={this.height} width={this.width}>
             {this.state.order.map((pileId, index) => (
-              <CardPile key={pileId} cardPile={this.state.cardPiles[pileId]}></CardPile>
+              <CardPile width={`${100 / this.state.order.length}%`} key={pileId} cardPile={this.state.cardPiles[pileId]}></CardPile>
             ))}
           </Container>
         </DragDropContext>
