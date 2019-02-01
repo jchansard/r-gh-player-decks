@@ -1,7 +1,7 @@
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
-import CardList from './card-list';
+import DraggableCardList from './draggable-card-list';
 
 const Container = styled.div`
   width: 200px;
@@ -18,7 +18,7 @@ export default class CardPile extends React.Component {
         <Title>{this.props.cardPile.name}</Title>
         <Droppable droppableId={this.props.cardPile.id} direction={this.props.cardPile.direction}>
           {(provided) => (
-            <CardList cards={this.props.cardPile.cards} gridMode={false} domRef={provided.innerRef} provided={provided}/>
+            <DraggableCardList cards={this.props.cardPile.cards} gridMode={false} domRef={provided.innerRef} provided={provided}/>
           )}
         </Droppable>
       </Container>

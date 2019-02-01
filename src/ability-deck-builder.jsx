@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CardList from './card-list';
+import CardGrid from './card-grid';
 
 const Container = styled.div`
   margin: auto;
@@ -21,8 +21,8 @@ export default class AbilityDeckBuilder extends React.Component {
     selectedCards: []
   }
 
-  clicked = (e,id) => {
-    //todo: performance?
+  clicked = (e, id) => {
+
     let selectedCards = Array.from(this.state.selectedCards);
     const index = (this.state.selectedCards.indexOf(id));
     if (index > -1) {
@@ -48,7 +48,7 @@ export default class AbilityDeckBuilder extends React.Component {
       <Container>
         <Title>Select Cards</Title>
         <CardListContainer>
-          <CardList gridMode={true} cards={this.props.cards} cardClickHandler={this.clicked} selected={this.state.selectedCards}/>
+          <CardGrid cards={this.props.cards} clickHandler={this.clicked} selected={this.state.selectedCards}/>
         </CardListContainer>
         <button onClick={this.deckBuilt}>Done</button>
       </Container>
