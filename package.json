@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "gh-pages": "^2.0.1",
     "react": "^16.7.0",
     "react-beautiful-dnd": "^10.0.3",
     "react-dom": "^16.7.0",
