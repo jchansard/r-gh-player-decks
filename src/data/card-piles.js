@@ -18,6 +18,7 @@ const cardPileData = {
       id: "discard",
       name: "Discarded",
       cards: [],
+      hasPickRandomButton: true
     },
 
     lost: {

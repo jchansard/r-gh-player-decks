@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
 import Card from './card';
 
@@ -19,6 +19,16 @@ const Title = styled.h1`
   margin-bottom: .2em;
 `;
 
+const onCardSelectedAnimation = keyframes`
+  0% { transform: rotateZ(0deg); }
+  30% { transform: rotateZ(-5deg); }
+  70% { transform: rotateZ(5deg); }
+  100% { transform: rotateZ(0deg); }
+  `;
+const onCardSelected = () => css`
+  animation: ${onCardSelectedAnimation} .25s ease 2;
+`;
+
 export default class DraggableCardList extends React.Component {
 
   render() {
@@ -31,13 +41,20 @@ export default class DraggableCardList extends React.Component {
             <Draggable key={index} draggableId={cardId} index={index}>
               {(provided) => (
                 <CardContainer key={index} index={index} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                  <Card key={index} id={cardId}/>
+                  <Card
+                    key={index}
+                    id={cardId}
+                    selected={(this.props.selected === index)}
+                    selectionCallback={onCardSelected}
+                    selectionEndCallback={this.props.selectionEndCallback}
+                  />
                 </CardContainer>
               )}
             </Draggable>
           )
         })}
         {provided.placeholder}
+        {this.props.children}
       </Container>
     )
   }

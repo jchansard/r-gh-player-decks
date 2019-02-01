@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Card from './card';
 
 const Container = styled.div`
@@ -13,6 +13,10 @@ const Container = styled.div`
 
 const CardContainer = styled.div``;
 
+const onCardSelected = () => css`
+    border: 2px red solid;
+    margin: -2px;
+`;
 
 export default class CardGrid extends React.Component {
 
@@ -29,7 +33,7 @@ export default class CardGrid extends React.Component {
           const isSelected = (Array.from(this.props.selected || []).indexOf(cardId) > -1);
           return (
             <CardContainer key={index} onClick={(e) => this.clickHandler(e, cardId)}>
-              <Card key={index} id={cardId} selected={isSelected}/>
+              <Card key={index} id={cardId} selected={isSelected} selectionCallback={onCardSelected}/>
             </CardContainer>
           )
         })}

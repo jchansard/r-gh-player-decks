@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const Image = styled.img`
   width: 100%;
-  border: ${props => (props.selected) ? "2px solid red" : "0px"};
-  margin: ${props => (props.selected) ? "-2px" : "0px"};
+
+  ${props => {
+      if (props.selected && props.selectionCallback) { return props.selectionCallback(); }
+  }}
 `;
 
 export default class Card extends React.PureComponent {
+
   render() {
-    return <Image selected={this.props.selected} alt={this.props.id} src={require(`./assets/${this.props.id}.jpg`)}/>;
+    const animationEndCallback = (this.props.selectionEndCallback) ? this.props.selectionEndCallback : (() => null);
+    return <Image onAnimationEnd={animationEndCallback} selected={this.props.selected} selectionCallback={this.props.selectionCallback} alt={this.props.id} src={require(`./assets/${this.props.id}.jpg`)}/>;
   }
 }

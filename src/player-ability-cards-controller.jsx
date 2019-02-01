@@ -1,7 +1,7 @@
 import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
-import CardPile from './card-pile';
+import CardPile from './card-pile.jsx';
 import AbilityDeckBuilder from './ability-deck-builder';
 import cardPileData from './data/card-piles';
 import swCards from './data/cards';
@@ -79,7 +79,7 @@ export default class PlayerAbilityCardsController extends React.Component {
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Container height={this.height} width={this.width}>
             {this.state.order.map((pileId, index) => (
-              <CardPile width={`${100 / this.state.order.length}%`} key={pileId} cardPile={this.state.cardPiles[pileId]}></CardPile>
+              <CardPile width={`${100 / this.state.order.length}%`} key={pileId} cardPile={this.state.cardPiles[pileId]}/>
             ))}
           </Container>
         </DragDropContext>
