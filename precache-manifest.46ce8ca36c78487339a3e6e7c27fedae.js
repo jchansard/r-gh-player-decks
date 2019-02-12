@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "a43f5e90ca9ee4b7da6a",
-    "url": "/r-gh-player-decks/static/js/main.a43f5e90.chunk.js"
+    "revision": "aeef0e707e30455b257d",
+    "url": "/r-gh-player-decks/static/js/main.aeef0e70.chunk.js"
   },
   {
     "revision": "ba59af60b0f5001ebb5b",
@@ -120,7 +120,7 @@ self.__precacheManifest = [
     "url": "/r-gh-player-decks/static/media/sw_26.feb6d07f.jpg"
   },
   {
-    "revision": "81b1e43c869877908301ec097ff72493",
+    "revision": "29b38457609c344312310dd1d8e90d0e",
     "url": "/r-gh-player-decks/index.html"
   }
 ];
