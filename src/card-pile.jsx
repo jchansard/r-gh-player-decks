@@ -7,7 +7,7 @@ const Container = styled.div`
   position: relative;
   width: ${props => props.width};
   min-width: 15em;
-  max-width: 18em;
+  /*max-width: 18em;*/
   border: 1px solid black;
   background-color: inherit;
   overflow: hidden;
@@ -22,6 +22,7 @@ export default class CardPile extends React.Component {
   state = {
     selectedIndex: -1,
   }
+
   selectRandomCard() {
     const newIndex =  Math.floor(Math.random() * this.props.cardPile.cards.length);
     if (newIndex === this.state.selectedIndex) { this.setState({selectedIndex: -1}); }
@@ -47,6 +48,7 @@ export default class CardPile extends React.Component {
                 selectionEndCallback={this.unselectCard}
                 domRef={provided.innerRef}
                 provided={provided}
+                direction={cardPile.direction}
               >
               {PickRandomButton}
               </DraggableCardList>

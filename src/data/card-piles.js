@@ -1,16 +1,8 @@
 const cardPileData = {
   cardPiles: {
-
-
     hand: {
       id: "hand",
       name: "Hand",
-      cards: [],
-    },
-
-    active: {
-      id: "active",
-      name: "Active",
       cards: [],
     },
 
@@ -26,9 +18,24 @@ const cardPileData = {
       name: "Lost",
       cards: [],
     },
-  },
 
-  order: ['hand', 'active', 'discard', 'lost']
-}
+    active: {
+      id: "active",
+      name: "Active",
+      cards: [],
+      direction: "horizontal",
+    },
+
+    selected: {
+      id: "selected",
+      name: "Selected",
+      cards: [],
+      direction: "horizontal",
+    },
+
+    sidebar: ["hand","discard","lost"],
+    topbar: ["selected","active"],
+  }
+};
 
 export default cardPileData;

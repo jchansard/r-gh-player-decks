@@ -8,7 +8,7 @@ class App extends React.Component {
   onDragEnd(result) {}
   render() {
     return (
-        <PlayerAbilityCardsController height={window.localStorage.getItem('height')} width={window.localStorage.getItem('width')}></PlayerAbilityCardsController>
+        <PlayerAbilityCardsController sidebarHeight={window.localStorage.getItem('height')} sidebarWidth={window.localStorage.getItem('width')}></PlayerAbilityCardsController>
     );
   }
 }

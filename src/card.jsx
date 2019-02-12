@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Image = styled.img`
   width: 100%;
+  max-width: 12em;
 
   ${props => {
       if (props.selected && props.selectionCallback) { return props.selectionCallback(); }

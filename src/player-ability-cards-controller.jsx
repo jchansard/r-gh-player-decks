@@ -2,11 +2,12 @@ import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import CardPile from './card-pile.jsx';
+import CardGrid from './card-grid.jsx';
 import AbilityDeckBuilder from './ability-deck-builder';
 import cardPileData from './data/card-piles';
 import swCards from './data/cards';
 
-const Container = styled.div`
+const Sidebar = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: white;
@@ -14,13 +15,24 @@ const Container = styled.div`
   width: ${(props) => props.width};
 `;
 
+const Topbar = styled.div`
+  display: inline-block;
+  float: right;
+  display: flex;
+  /*flex-wrap: wrap;*/
+  background-color: white;
+  height: 200px;
+  width: 100%;
+  border: 1px solid black;
+`;
+
 export default class PlayerAbilityCardsController extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.height = this.props.height || "100%";
-    this.width = this.props.width || "100%;"
+    this.sidebarHeight = this.props.sidebarHeight || "100%";
+    this.sidebarWidth = this.props.sidebarWidth || "100%;"
   }
 
   state = {
@@ -77,11 +89,16 @@ export default class PlayerAbilityCardsController extends React.Component {
     else {
       return (
         <DragDropContext onDragEnd={this.onDragEnd}>
-          <Container height={this.height} width={this.width}>
-            {this.state.order.map((pileId, index) => (
-              <CardPile width={`${100 / this.state.order.length}%`} key={pileId} cardPile={this.state.cardPiles[pileId]}/>
+          <Topbar>
+            {this.state.cardPiles.topbar.map((pileId, index) => (
+              <CardPile width={`${100 / this.state.cardPiles.topbar.length}%`} key={pileId} cardPile={this.state.cardPiles[pileId]}/>
             ))}
-          </Container>
+          </Topbar>
+          <Sidebar height={this.sidebarHeight} width={this.sidebarWidth}>
+            {this.state.cardPiles.sidebar.map((pileId, index) => (
+              <CardPile width={`${100 / this.state.cardPiles.sidebar.length}%`} key={pileId} cardPile={this.state.cardPiles[pileId]}/>
+            ))}
+          </Sidebar>
         </DragDropContext>
       )
     }

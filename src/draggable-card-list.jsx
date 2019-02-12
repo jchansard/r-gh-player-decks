@@ -3,14 +3,19 @@ import styled, { css, keyframes } from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
 import Card from './card';
 
-const Container = styled.div`
+const DropArea = styled.div`
   height: 100%;
   min-height: 50px;
 `;
 
+const CardFlexBox = styled.div`
+  display: flex;
+  flex-direction: ${props => (props.direction === "horizontal") ? "row" : "column" }
+`;
+
 const CardContainer = styled.div`
-  height: 50px;
-  width: inherit;
+  /*height: 50px;
+  width: inherit;*/
 `;
 
 const Title = styled.h1`
@@ -34,28 +39,30 @@ export default class DraggableCardList extends React.Component {
   render() {
     const { provided, domRef } = this.props;
     return (
-      <Container ref={domRef} {...provided.droppableProps}>
+      <DropArea ref={domRef} {...provided.droppableProps}>
         <Title>{this.props.title}</Title>
+        <CardFlexBox direction={this.props.direction}>
         {this.props.cards.map((cardId, index) => {
           return (
-            <Draggable key={index} draggableId={cardId} index={index}>
-              {(provided) => (
-                <CardContainer key={index} index={index} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                  <Card
-                    key={index}
-                    id={cardId}
-                    selected={(this.props.selected === index)}
-                    selectionCallback={onCardSelected}
-                    selectionEndCallback={this.props.selectionEndCallback}
-                  />
-                </CardContainer>
-              )}
-            </Draggable>
+              <Draggable key={index} draggableId={cardId} index={index}>
+                {(provided) => (
+                  <CardContainer key={index} index={index} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                    <Card
+                      key={index}
+                      id={cardId}
+                      selected={(this.props.selected === index)}
+                      selectionCallback={onCardSelected}
+                      selectionEndCallback={this.props.selectionEndCallback}
+                    />
+                  </CardContainer>
+                )}
+              </Draggable>
           )
         })}
         {provided.placeholder}
+        </CardFlexBox>
         {this.props.children}
-      </Container>
+      </DropArea>
     )
   }
 }
